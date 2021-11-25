@@ -77,14 +77,17 @@ public class Main {
 		String isAdding;
 		Scanner scan = new Scanner(System.in);
 
+		System.out.println("Do you wanna add new Metric(Y/N)");
+		isAdding = scan.next();
+
+
 		//pre-poluting an array with already existing metrics
 		metricList.add(new Metric("QUESTION","?"));
 		metricList.add(new Metric("SHAKER_MENTIONS","shaker"));
 		metricList.add(new Metric("MOVER_MENTIONS","mover"));
 		metricList.add(new Metric("SPAM","http"));
 
-		System.out.println("Do you wanna add new Metric(Y/N)");
-		isAdding = scan.next();
+
 
 		if (isAdding.equalsIgnoreCase("y")) {
 			System.out.println("===================================");
