@@ -78,6 +78,12 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 
 		System.out.println("Do you wanna add new Metric(Y/N)");
+
+		while (!scan.hasNext("[ynYN]")){
+			System.out.println("invalid input. Enter Y/N");
+			scan.next();
+		}
+
 		isAdding = scan.next();
 
 
@@ -88,13 +94,16 @@ public class Main {
 		metricList.add(new Metric("SPAM","http"));
 
 
-
 		if (isAdding.equalsIgnoreCase("y")) {
 			System.out.println("===================================");
 			System.out.println("How many metric do you want to add(excluding :SHORTER_THAN_15,SHAKER_MENTIONS,MOVER_MENTIONS,SPAM,QUESTION)");
 			System.out.println("EXAMPLE: Metric name = CLIENT_GREETING, Metric contains = hello ");
 			System.out.println("Type 0 if you don't add any metric");
 
+			while (!scan.hasNextInt()){
+				System.out.println("Input is not numeric. Enter a number");
+				scan.next();
+			}
 			howMany = scan.nextInt();
 
 			for (int i = 1; i < howMany + 1; i++) {
